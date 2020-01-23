@@ -8,6 +8,7 @@ namespace HelloMVC.Controllers
 {
     public class HelloController : Controller
     {
+        static int counter;
         
         // GET: /Controllers
         [HttpGet]
@@ -47,9 +48,9 @@ namespace HelloMVC.Controllers
             if (language == "german") { greet = "Hallo"; }
             if (language == "japanese") { greet = "Konnichiwa"; }
             if (language == "tagalog") { greet = "Kumusta"; }
+            counter++;
+            string message = string.Format("<h1 style = color:blue;>{0} {1}!You have been greeted {2} times</h1>", greet, name, counter);
             
-            string message = string.Format("<h1 style = color:blue;>{0} {1}! </h1>", greet, name);
-             
             return message;
         }
 
